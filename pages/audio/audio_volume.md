@@ -1,8 +1,3 @@
----
-layout: page
-author: "Hugo"
-title: "The audio Volume slider"
----
 # Audio Volume
 
 The volume or loudness of the sound is a number between 0 and 100. The audio Volume level can be found at Audio Strip > Properties > Sound > Volume. The default value is 1. A value > 1 will amplify the sound; a value < 1 will decrease the sound level.
