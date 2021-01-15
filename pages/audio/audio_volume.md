@@ -1,5 +1,6 @@
 ---
 layout: pages
+author: Hugo
 title: The audio Volume slider
 ---
 # Audio Volume
