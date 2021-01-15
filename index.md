@@ -1,7 +1,7 @@
-Table of content
+# Table of content
 
 1 Audio
 
-* [Volume level](pages/audio/audio_volume.md)
+    * [Volume level](pages/audio/audio_volume.md)
 
 2 Video
