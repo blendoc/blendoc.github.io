@@ -1,15 +1,13 @@
 ---
-title: Blendoc
-description: Explorations in deep Blender space
+title: Audio Volume
+description: How loud is 0.3?
 ---
-# Audio Volume
-
 The volume or loudness of the sound is a number between 0 and 100. The audio Volume level can be found at Audio Strip > Properties > Sound > Volume. The default value is 1. A value > 1 will amplify the sound; a value < 1 will decrease the sound level.
 
 ![Volume level property panel](audio_volume_property.png)
 
 Fig 1: Volume level property in the sound panel of a sound strip
-## 1) What's the relationship between Volume level value and loudness?
+# 1) What's the relationship between Volume level value and loudness?
 
 You can calculate the gain or loss in decibels (dB) with the following formula:
 
@@ -35,7 +33,7 @@ The volume or loudness of a sound is a perceptual/psychological phenomenon. As s
 
 The decibel scale is a relative scale; it's the ratio of a sound compared to some reference sound. For digital sound the reference is a sound with an amplitude of +1V or the maximum amplitude that can be stored with the chosen bit depth. Because of this definition - dB = log(sample voltage/1 V) - the dB value of a sample voltage = 1V is zero, because log(1/1) = 0. Zero dB is thus the maximum sound level we can have without distortion. Decreasing the sound level will result in a negative dB.
 
-## 2) How to calculate the dB value in Blender Python?
+# 2) How to calculate the dB value in Blender Python?
 
 The attached blend-file contains a Python script to calculate the dB value of a sound strip, as well as some other sound-parameters. The code is based on [Snuq's VSEQF-addon](https://github.com/snuq/VSEQF) (vu_meter.py). As example we use Blender's open movie [Spring](https://www.youtube.com/watch?v=WhWc3b3KhnY).
 
@@ -50,7 +48,7 @@ depsgraph = bpy.context.evaluated_depsgraph_get()
 sound = strip.sound.evaluated_get(depsgraph).factory
 ~~~
 
-### 2.1 dB value for the whole strip
+## 2.1 dB value for the whole strip
 
 There are quite a few measures. The most used are:
 
@@ -82,7 +80,7 @@ rms =  np.sqrt(m)
 db = 20 * math.log10(rms)
 ~~~
 
-### 2.2 dB value of the current frame or a section of a strip
+## 2.2 dB value of the current frame or a section of a strip
 
 Suppose, you want the dB value for the sound samples underneath the playhead/cursor in the timeline. Audio strips however work with time code, not frames. This is the cause of many misunderstandings. For example, if you have a MP4-file (video + audio) and you change the frame-per-second parameter of the scene, then the length of the video will change but not the length of the audio strip. The duration of an audio-strip can be calculated, based on the sample rate and the number of samples.
 
@@ -113,7 +111,7 @@ time_to = (cur_frame - strip.frame_start) / fps
 sound_cur_frame = sound.limit(time_from, time_to)
 ~~~
 
-### 2.3 The decibel value of a trimmed strip
+## 2.3 The decibel value of a trimmed strip
 
 Because the Data method of a Sound object always returns all samples of the entire strip, you also have to use the limit-method (see above section 2.2) for a trimmed strip. [Trimming and cutting](../video/trimming.md) of a strip is extensively described in a separate post. Fig. 3 summarizes the different achor points.
 
@@ -123,7 +121,7 @@ time_to = (strip.frame_final_end -  strip.frame_start)/fps
 sound_trimmed_strip = sound.limit(time_from, time_to)
 ~~~
 
-### 2.4. The decibel value of an animated strip
+## 2.4. The decibel value of an animated strip
 
 The sound data contain the raw sampled data. To account for a changed volume level for the entire strip, you simply multiply this level with the raw data.
 
