@@ -1,5 +1,5 @@
 ---
-layout: pages
+layout: page
 author: "Hugo"
 title: "The audio Volume slider"
 ---
