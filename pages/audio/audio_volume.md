@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: pages
 title: The audio Volume slider
 ---
 # Audio Volume
