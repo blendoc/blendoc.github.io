@@ -1,3 +1,4 @@
 title: Blendoc
 description: Explorations in deep Blender space
-theme: jekyll-theme-midnight
+remote_theme: pmarsceill/just-the-docs
+
