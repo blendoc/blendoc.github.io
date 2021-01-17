@@ -7,4 +7,5 @@
 2 Video
 
 3 Python
-* [Script Editor](pages/scrip_editor.md)
+
+* [Script Editor](pages/script_editor.md)
