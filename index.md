@@ -8,4 +8,5 @@
 
 3 Python
 
-* [Script Editor](pages/script_editor.md)
+* [Script Editor](pages/script_editor/script_editor.md)
+
